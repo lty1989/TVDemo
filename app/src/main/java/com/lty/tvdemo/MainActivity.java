@@ -42,9 +42,9 @@ public class MainActivity extends Activity {
 
 
         ImageCardView icv;
-        HeaderItem item =new HeaderItem(0L,"");
+        HeaderItem item = new HeaderItem(0L, "");
 
-        HorizontalGridView gv = findViewById(R.id.gv);
+        //HorizontalGridView gv = findViewById(R.id.gv);
         List<String> data = new ArrayList<>();
         for (int i = 0; i < 15; i++) {
             data.add("热门推荐" + i);
@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 //        data.add("生活");
 //        data.add("经济");
 //        data.add("运动");
-        gv.setAdapter(new MyAdapter(data));
+        // gv.setAdapter(new MyAdapter(data));}
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
