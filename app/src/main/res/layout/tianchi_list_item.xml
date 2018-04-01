@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lty.tvdemo.layout.TianchiRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5px">
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_heightPercent="100"
+        app:layout_widthPercent="200"/>
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn1"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_heightPercent="100"
+        app:layout_widthPercent="200"/>
+
+    <com.lty.tvdemo.view.MyLinearLayout
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/btn1"
+        android:background="@android:color/black"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_heightPercent="200"
+        app:layout_widthPercent="300"/>
+
+
+</com.lty.tvdemo.layout.TianchiRelativeLayout>

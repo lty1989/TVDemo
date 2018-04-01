@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PercentLayout_Layout">
+        <attr name="layout_widthPercent" format="integer"/>
+        <attr name="layout_heightPercent" format="integer"/>
+        <attr name="layout_marginPercent" format="integer"/>
+        <attr name="layout_marginLeftPercent" format="integer"/>
+        <attr name="layout_marginTopPercent" format="integer"/>
+        <attr name="layout_marginRightPercent" format="integer"/>
+        <attr name="layout_marginBottomPercent" format="integer"/>
+        <attr name="layout_marginStartPercent" format="integer"/>
+        <attr name="layout_marginEndPercent" format="integer"/>
+    </declare-styleable>
+</resources>

@@ -9,6 +9,10 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -22,4 +26,5 @@ dependencies {
     implementation 'com.android.support:leanback-v17:26.1.0'
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.github.bumptech.glide:glide:3.8.0'
+
 }
