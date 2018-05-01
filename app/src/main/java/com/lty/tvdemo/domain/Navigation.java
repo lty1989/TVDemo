@@ -8,4 +8,6 @@ package com.lty.tvdemo.domain;
 public class Navigation {
 
     public String name;
+
+    public int spec;
 }
