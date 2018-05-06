@@ -15,6 +15,7 @@
 package com.lty.tvdemo.mytest;
 
 import android.app.Activity;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v17.leanback.widget.HeaderItem;
 import android.support.v17.leanback.widget.ImageCardView;
@@ -23,6 +24,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,11 @@ import java.util.List;
 public class MyTestActivity extends Activity {
 
     private ScaleRecyclerView rv;
+
+    private final int TYPE_UP = 0;
+    private final int TYPE_DOWN = 1;
+
+    private int currentType = -1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +80,20 @@ public class MyTestActivity extends Activity {
         add(data, MyAdapter.TYPE_SIX);
 
         rv.addItemDecoration(new ItemDecoration(20));
-        rv.setAdapter(new com.lty.tvdemo.mytest.MyAdapter(data));
+        rv.setAdapter(new com.lty.tvdemo.mytest.MyAdapter(data, new MyAdapter.MyAdapterListener() {
+            @Override
+            public void OnItemFocused(View view, int poisiton) {
+                Log.d("MyTestActivity", "poisiton:" + poisiton);
+                int dpoisiton = 0;
+                if (currentType == TYPE_DOWN) {
+                    dpoisiton = 1;
+                } else if (currentType == TYPE_DOWN) {
+                    dpoisiton = -1;
+                }
+
+                rv.smoothScrollToPosition(poisiton + dpoisiton);
+            }
+        }));
 
 
         rv.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -133,4 +153,20 @@ public class MyTestActivity extends Activity {
     }
 
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_DPAD_DOWN:
+                currentType = TYPE_DOWN;
+                Log.d("MyTestActivity", "DOWN DOWN");
+                break;
+            case KeyEvent.KEYCODE_DPAD_UP:
+                currentType = TYPE_UP;
+                Log.d("MyTestActivity", "UP UP");
+                break;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
 }

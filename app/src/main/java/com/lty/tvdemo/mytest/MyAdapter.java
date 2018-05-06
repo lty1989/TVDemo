@@ -1,6 +1,8 @@
 package com.lty.tvdemo.mytest;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +27,17 @@ public class MyAdapter extends RecyclerView.Adapter {
 
     private List<DataModel> data;
 
+    private MyAdapterListener mMyAdapterListener;
+
     public MyAdapter(List<DataModel> data) {
         this.data = data;
     }
+
+    public MyAdapter(List<DataModel> data, MyAdapterListener listener) {
+        this.data = data;
+        this.mMyAdapterListener = listener;
+    }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -51,6 +61,148 @@ public class MyAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+        if (holder instanceof ThreeViewHolder) {
+            ((ThreeViewHolder) holder).view1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view1", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+            ((ThreeViewHolder) holder).view2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view2", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+            ((ThreeViewHolder) holder).view3.setOnKeyListener(new View.OnKeyListener() {
+                @Override
+                public boolean onKey(View v, int keyCode, KeyEvent event) {
+                    return false;
+                }
+            });
+            ((ThreeViewHolder) holder).view3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view3", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+        }
+
+        if (holder instanceof TwoViewHolder) {
+            ((TwoViewHolder) holder).view1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view1", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+            ((TwoViewHolder) holder).view2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view2", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+
+        }
+
+
+        if (holder instanceof SixViewHolder) {
+            ((SixViewHolder) holder).view1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view1", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+            ((SixViewHolder) holder).view2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view2", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+
+            ((SixViewHolder) holder).view3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view3", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+
+            ((SixViewHolder) holder).view4.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view3", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+
+            ((SixViewHolder) holder).view5.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view3", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+
+            ((SixViewHolder) holder).view6.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View v, boolean hasFocus) {
+                    if (hasFocus) {
+                        Log.d("MyAdapter view3", "position:" + position);
+                        if (mMyAdapterListener != null) {
+                            mMyAdapterListener.OnItemFocused(v, position);
+                        }
+                    }
+                }
+            });
+        }
 
     }
 
@@ -134,5 +286,11 @@ public class MyAdapter extends RecyclerView.Adapter {
             return TYPE_SIX;
         }
         return super.getItemViewType(position);
+    }
+
+    public interface MyAdapterListener {
+
+        void OnItemFocused(View view, int poisiton);
+
     }
 }

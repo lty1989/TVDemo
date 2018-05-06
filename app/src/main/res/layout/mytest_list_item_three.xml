@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lty.tvdemo.layout.TianchiRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="280px"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_vertical">
+
+    <com.lty.tvdemo.mytest.MyButton
+        android:id="@+id/view1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_heightPercent="240"
+        app:layout_widthPercent="600"/>
+
+    <com.lty.tvdemo.mytest.MyButton
+        android:id="@+id/view2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/view1"
+        android:layout_toRightOf="@+id/view1"
+        app:layout_heightPercent="240"
+        app:layout_marginLeftPercent="52"
+        app:layout_widthPercent="600"/>
+
+    <com.lty.tvdemo.mytest.MyButton
+        android:id="@+id/view3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/view1"
+        android:layout_toRightOf="@+id/view2"
+        app:layout_heightPercent="240"
+        app:layout_marginLeftPercent="52"
+        app:layout_widthPercent="600"/>
+
+
+</com.lty.tvdemo.layout.TianchiRelativeLayout>
